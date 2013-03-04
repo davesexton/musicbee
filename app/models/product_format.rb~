@@ -1,0 +1,3 @@
+class ProductFormat < ActiveRecord::Base
+  attr_accessible :format_id, :price, :product_id
+end

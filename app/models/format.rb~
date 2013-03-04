@@ -1,0 +1,8 @@
+class Format < ActiveRecord::Base
+  attr_accessible :description, :title
+
+  has_many :formats_products
+  has_many :products, :through => :formats_products
+
+
+end

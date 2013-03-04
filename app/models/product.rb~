@@ -1,0 +1,8 @@
+class Product < ActiveRecord::Base
+  attr_accessible :description, :title
+
+  has_many :formats_products
+  has_many :formats, :through => :formats_products
+  has_many :songs
+
+end
