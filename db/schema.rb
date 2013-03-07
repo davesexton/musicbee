@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(:version => 20130304223524) do
   create_table "format_products", :force => true do |t|
     t.integer  "product_id"
     t.integer  "format_id"
-    t.decimal  "price"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.decimal  "price",      :precision => 8, :scale => 2
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "formats", :force => true do |t|

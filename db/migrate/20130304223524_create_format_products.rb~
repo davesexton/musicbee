@@ -3,7 +3,7 @@ class CreateFormatProducts < ActiveRecord::Migration
     create_table :format_products do |t|
       t.integer :product_id
       t.integer :format_id
-      t.decimal :price, :precision => 8, :scale => 2
+      t.decimal :price
 
       t.timestamps
     end

@@ -1,0 +1,29 @@
+<h1>Store#index</h1>
+
+<table class="">
+  <% @products.each do |product| %>
+  <tr>
+    <td>
+      <h3><%= product.title %></h3>
+      <p>
+        <%= product.description.truncate(120, separator: ' ') %>
+        <%= link_to '(more)', product %>
+      </p>
+      <p>
+        <b>Songs include:</b>
+        <%= product.song_sample %>
+        <%= link_to '(full listing)', product %>
+      </p>
+      <p>
+      <% product.format_products.each do |format_product| %>
+        <% title = format_product.format.title %>
+        <%= radio_button_tag 'format', format_product %>
+        <%= label_tag 'format',
+                      "#{title} (#{number_to_currency(format_product.price, unit: '£ ')})" %>
+        <br />
+      <% end %>
+      </p>
+    </td>
+  </tr>
+  <% end %>
+</table>
