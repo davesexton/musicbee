@@ -1,8 +1,8 @@
 <h1>Store#index</h1>
-
+<%= root_url %>
 <table class="">
   <% @products.each do |product| %>
-  <tr>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td>
       <h3><%= product.title %></h3>
       <p>
@@ -13,15 +13,6 @@
         <b>Songs include:</b>
         <%= product.song_sample %>
         <%= link_to '(full listing)', product %>
-      </p>
-      <p>
-      <% product.format_products.each do |format_product| %>
-        <% title = format_product.format.title %>
-        <%= radio_button_tag 'format', format_product %>
-        <%= label_tag 'format',
-                      "#{title} (#{number_to_currency(format_product.price, unit: '£ ')})" %>
-        <br />
-      <% end %>
       </p>
     </td>
   </tr>

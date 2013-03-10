@@ -5,6 +5,8 @@ class Product < ActiveRecord::Base
   has_many :formats, :through => :format_products
   has_many :songs
 
+  validates :title, :description, presence: true
+
   def song_sample
     s = songs.sample(3).map {|s| s.title }.join("', '")
     "'#{s}'"

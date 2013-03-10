@@ -1,13 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
+<h2>
+  Title:
   <%= @product.title %>
-</p>
+</h2>
+<%= path_to_audio('1.mp3') %>
 
 <p>
   <b>Description:</b>
   <%= @product.description %>
+</p>
+
+<p>
+   <% @product.format_products.each do |format_product| %>
+      <% title = format_product.format.title %>
+      <%= radio_button_tag 'format', format_product.id %>
+      <%= label_tag "format_#{format_product.id}",
+                    sanitize("#{title} (#{number_to_currency(format_product.price, unit: '&pound; ')})") %>
+      <br />
+    <% end %>
+</p>
+
+<% first_song = @product.songs.first.id %>
+
+<audio controls="controls" preload="none" id="player">
+  <source src="<%= path_to_audio("#{first_song}.mp3") %>" type="audio/mpeg" />
+  <source src="<%= path_to_audio("#{first_song}.ogg") %>" type="audio/ogg" />
+  xxxx
+</audio>
+
+<p>
+  <b>Song Listing:</b><br />
+  <ul>
+
+  <% @product.songs.each do |song| %>
+    <li>
+      <%= button_tag('Play', type: 'button', 'data-id' => song.id, class: 'play_button') %>
+      <%= song.title %>
+<!--
+    <audio controls="controls">
+      <source src="/audios/1.mp3" type="audio/mpeg" />
+      <source src="/audios/1.ogg" type="audio/ogg" />
+      xxxx
+    </audio>
+-->
+    </li>
+  <% end %>
+  </ul>
 </p>
 
 

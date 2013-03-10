@@ -4,4 +4,7 @@ class FormatProduct < ActiveRecord::Base
   belongs_to :format
   belongs_to :product
 
+  #validates :title, :description, :image_url, presence: true
+
+
 end
