@@ -1,11 +1,91 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
+  title: All That I Am
+  description: blah blah
   product_id: 1
-  title: MyString
-  description: MyText
 
 two:
+  id: 2
+  title: As I Kneel
+  description: blah blah
   product_id: 1
-  title: MyString
-  description: MyText
+
+three:
+  id: 3
+  title: As I Went A Walking
+  description: blah blah
+  product_id: 1
+
+four:
+  id: 4
+  title: Autumn Days
+  description: blah blah
+  product_id: 1
+
+five:
+  id: 5
+  title: Because The Lord Is
+  description: blah blah
+  product_id: 1
+
+six:
+  id: 27
+  title: Come Into His Presence
+  description: blah blah
+  product_id: 2
+
+seven:
+  id: 28
+  title: I Belong To The Family
+  description: blah blah
+  product_id: 2
+
+eight:
+  id: 29
+  title: I, The Lord Of Sea And Sky
+  description: blah blah
+  product_id: 2
+
+nine:
+  id: 30
+  title: Morning Has Broken
+  description: blah blah
+  product_id: 2
+
+ten:
+  id: 31
+  title: Praise Him, Praise Him
+  description:
+  product_id: 2
+
+eleven:
+  id: 57
+  title: Advent Has Come
+  description:
+  product_id: 3
+
+tweleve:
+  id: 58
+  title: Light The Advent Candle
+  description:
+  product_id: 3
+
+thirteen:
+  id: 59
+  title: Ave Maria
+  description:
+  product_id: 3
+
+fourteen:
+  id: 60
+  title: How Can This Be?
+  description:
+  product_id: 3
+
+fifteen:
+  id: 61
+  title: Mary, Mary Gentle One
+  description:
+  product_id: 3

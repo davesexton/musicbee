@@ -3,9 +3,34 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  $('.play_button').click ->
-    data = $(this).data()
-    $('#player')[0].load("audios/2.ogg")
-    #$('#player')[0].currentSrc = $('#player')[0].currentSrc.replace /\/\d*\./, '/2.'
-    alert $('#player')[0].currentSrc
+  if $('.products').length > 0
+    $('#player')[0].controls = false
+    $('#player').bind('ended', ->
+      $('.play_button').text('Play').data('playing', 'n')
+    )
+
+    $('.play_button').click ->
+      $('.play_button').not(this).text('Play').data('playing', 'n')
+      data = $(this).data()
+      player = $('#player')[0]
+
+      if data.playing == 'y'
+        player.pause()
+        $(this).text('Play').data('playing', 'n')
+
+      else
+        if /\.ogg/.test(player.currentSrc)
+          file = data.ogg
+        else
+          file = data.mp3
+
+        $(this).text('Stop').data('playing', 'y')
+
+        if player.src.indexOf(file) > -1
+          player.play()
+        else
+          player.src = file
+          player.autoplay = true
+          player.load()
+
 #

@@ -1,9 +1,40 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  description: MyText
+  id: 1
+  title: Volume 1 Liturgical Music
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat
+    accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna
+    a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum
+    erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar
+    eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio,
+    eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero
+    dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus
+    tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed
+    ipsum iaculis lacinia.
 
 two:
-  title: MyString
-  description: MyText
+  id: 2
+  title: Volume 2 The Mass
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat
+    accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna
+    a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum
+    erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar
+    eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio,
+    eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero
+    dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus
+    tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed
+    ipsum iaculis lacinia.
+
+three:
+  id: 3
+  title: Volume 3 The Nativity
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat
+    accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna
+    a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum
+    erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar
+    eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio,
+    eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero
+    dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus
+    tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed
+    ipsum iaculis lacinia.

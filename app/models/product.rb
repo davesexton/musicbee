@@ -10,7 +10,6 @@ class Product < ActiveRecord::Base
   def song_sample
     s = songs.sample(3).map {|s| s.title }.join("', '")
     "'#{s}'"
-
   end
 
 end

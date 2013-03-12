@@ -1,9 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  description: MyText
+  id: 1
+  title: Music CD / lyrics on CD
+  description: blah blah
 
 two:
-  title: MyString
-  description: MyText
+  id: 2
+  title: Music CD only
+  description: blah blah
+
+three:
+  id: 3
+  title: Lyrics on CD only
+  description: blah blah
