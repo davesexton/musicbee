@@ -6,6 +6,8 @@ class Product < ActiveRecord::Base
   has_many :songs
 
   validates :title, :description, presence: true
+  validates :title, uniqueness: true
+
 
   def song_sample
     s = songs.sample(3).map {|s| s.title }.join("', '")

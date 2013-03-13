@@ -19,7 +19,7 @@ $ ->
         $(this).text('Play').data('playing', 'n')
 
       else
-        if /\.ogg/.test(player.currentSrc)
+        if player.canPlayType("audio/ogg")
           file = data.ogg
         else
           file = data.mp3

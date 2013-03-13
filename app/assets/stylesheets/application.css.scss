@@ -16,6 +16,26 @@
 @import 'compass/reset';
 @import 'blueprint';
 
+body > div {
+  @include container;
+}
+
+
+header {
+  @include column(24);
+  height: 75px;
+  font-size: 24pt;
+  padding-top: 10px;
+}
+footer {
+  @include column(24);
+  height: 30px;
+  background-color: #c6aec7;
+}
+nav {
+  @include column(24);
+  background-color: #c6aec7;
+}
 
 .list_line_odd {
 
