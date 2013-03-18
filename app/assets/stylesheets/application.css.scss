@@ -20,6 +20,22 @@ body > div {
   @include container;
 }
 
+aside {
+  @include column(6);
+  padding: {
+    top: 1em;
+    bottom: 1em;
+  }
+}
+
+section {
+  @include column(18);
+  @include last;
+  padding: {
+    top: 1em;
+    bottom: 1em;
+  }
+}
 
 header {
   @include column(24);

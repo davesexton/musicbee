@@ -22,6 +22,7 @@
 </p>
 
 <% first_song = @product.songs.first.id %>
+<% song_count = @product.songs.count %>
 
 <audio controls="none" preload="none" id="player">
   <source src="<%= path_to_audio("#{first_song}.mp3") %>" type="audio/mpeg" />
@@ -30,22 +31,32 @@
 </audio>
 
 <p>
-  <b>Song Listing:</b><br />
-  <ul>
 
-  <% @product.songs.each do |song| %>
-    <li>
+  <b>Song Listing (<%= pluralize(song_count, 'song') %>): </b><br />
+
+  <table id="song_listing">
+
+  <% @product.songs.order(:title).in_groups(3).transpose.each do |song_group| %>
+    <tr>
+    <% song_group.each do |song| %>
+    <td>
+      <% if song %>
       <%= button_tag('Play',
                      type: 'button',
                      'data-ogg' => path_to_audio("#{song.id}.ogg"),
                      'data-mp3' => path_to_audio("#{song.id}.mp3"),
                      'data-playing' => 'n',
                      class: 'play_button') %>
-      <%= song.title %>
+        <% end %>
+      </td>
+      <td>
+      <%= song.title if song %>
 
-    </li>
+    </td>
+    <% end %>
+    </tr>
   <% end %>
-  </ul>
+  </table>
 </p>
 
 
