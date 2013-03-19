@@ -28,6 +28,12 @@ aside {
   }
 }
 
+h1 {
+  font-size: 2em;
+  margin-bottom: 0.25em;
+  font-weight: bold;
+}
+
 section {
   @include column(18);
   @include last;

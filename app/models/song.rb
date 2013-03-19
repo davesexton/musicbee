@@ -3,6 +3,6 @@ class Song < ActiveRecord::Base
 
   belongs_to :product
 
-  validates :title, :description, presence: true
+  validates :title, presence: true
 
 end

@@ -14,4 +14,12 @@ class Product < ActiveRecord::Base
     "'#{s}'"
   end
 
+  def image_url
+    "/images/covers/#{id}.jpg"
+  end
+
+  def song_count
+    songs.count
+  end
+
 end

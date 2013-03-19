@@ -1,17 +1,26 @@
 <p id="notice"><%= notice %></p>
-
-<h2>
-  Title:
-  <%= @product.title %>
-</h2>
-<%= path_to_audio('1.mp3') %>
-
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
-
-<p>
+<div id="product_image">
+  <%= image_tag(image_path(@product.image_url),
+                alt: "#{@product.title} cover",
+                class: 'cover_image',
+                title: "#{@product.title} cover",
+                size: '190x265'
+                ) %>
+</div>
+<div id="product_desc">
+  <h1>
+    <%= @product.title %>
+  </h1>
+  <p>
+    <b>Description:</b>
+    <%= @product.description %>
+  </p>
+  <p>
+    <%= link_to 'Edit', edit_product_path(@product) %> |
+    <%= link_to 'Back', products_path %>
+  </p>
+</div>
+<div id="product_payment">
    <% @product.format_products.each do |format_product| %>
       <% title = format_product.format.title %>
       <%= radio_button_tag 'format', format_product.id %>
@@ -19,46 +28,50 @@
                     sanitize("#{title} (#{number_to_currency(format_product.price, unit: '&pound; ')})") %>
       <br />
     <% end %>
-</p>
+</div>
 
-<% first_song = @product.songs.first.id %>
-<% song_count = @product.songs.count %>
+<div id="product_songs">
+  <% first_song = @product.songs.first.id %>
+  <% song_count = @product.song_count %>
 
-<audio controls="none" preload="none" id="player">
-  <source src="<%= path_to_audio("#{first_song}.mp3") %>" type="audio/mpeg" />
-  <source src="<%= path_to_audio("#{first_song}.ogg") %>" type="audio/ogg" />
-  xxxx
-</audio>
+  <audio controls="none" preload="none" id="player">
+    <source src="<%= path_to_audio("#{first_song}.mp3") %>" type="audio/mpeg" />
+    <source src="<%= path_to_audio("#{first_song}.ogg") %>" type="audio/ogg" />
+    xxxx
+  </audio>
 
-<p>
-
-  <b>Song Listing (<%= pluralize(song_count, 'song') %>): </b><br />
-
-  <table id="song_listing">
-
-  <% @product.songs.order(:title).in_groups(3).transpose.each do |song_group| %>
+  <div>
+    <table id="song_listing">
     <tr>
-    <% song_group.each do |song| %>
-    <td>
-      <% if song %>
-      <%= button_tag('Play',
-                     type: 'button',
-                     'data-ogg' => path_to_audio("#{song.id}.ogg"),
-                     'data-mp3' => path_to_audio("#{song.id}.mp3"),
-                     'data-playing' => 'n',
-                     class: 'play_button') %>
-        <% end %>
-      </td>
-      <td>
-      <%= song.title if song %>
-
-    </td>
-    <% end %>
+      <th colspan="6">
+        Track samples (<%= pluralize(song_count, 'track') %>):
+      </th>
     </tr>
-  <% end %>
-  </table>
-</p>
+    <tr>
+      <td colspan="6">
+        Click the buttons below to hear a 30 second sound sample of each track
+      </td>
+    </tr>
+    <% @product.songs.order(:title).in_groups(3).transpose.each do |song_group| %>
+      <tr>
+      <% song_group.each do |song| %>
+      <td>
+        <% if song %>
+        <%= button_tag('Play',
+                       type: 'button',
+                       'data-ogg' => path_to_audio("#{song.id}.ogg"),
+                       'data-mp3' => path_to_audio("#{song.id}.mp3"),
+                       'data-playing' => 'n',
+                        class: 'play_button') %>
+          <% end %>
+        </td>
+        <td>
+        <%= song.title if song %>
 
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+      </td>
+      <% end %>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>

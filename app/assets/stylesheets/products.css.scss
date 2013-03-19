@@ -2,10 +2,44 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+@import 'blueprint';
 .products {
   #song_listing {
     td {
       padding: 0.25em;
     }
+    th {
+      font-size: 1.25em;
+      font-weight: bold;
+    }
   }
+
+  .cover_image {
+    width: 190px;
+    height: 265px;
+    background-image: url('cover_shadow.png');
+    padding: 5px;
+  }
+  .play_button {
+    width: 54px;
+  }
+  #product_image {
+    @include column(6);
+    padding-top: 1em;
+  }
+  #product_desc {
+    @include column(12);
+    @include last;
+    padding-top: 1em;
+  }
+  #product_payment, #product_songs {
+    @include column(18);
+    @include last;
+    padding-top: 1em;
+    label {
+      font-size: 1.2em;
+    }
+  }
+
 }

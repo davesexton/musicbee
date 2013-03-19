@@ -8,17 +8,17 @@
 
 Product.delete_all
 
-Product.create(id: 1, title: 'Volume 1 Liturgical Music',
+Product.create(id: 1, title: 'Volume One Liturgical Music',
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio, eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed ipsum iaculis lacinia." )
-Product.create(id: 2, title: 'Volume 2 The Mass',
+Product.create(id: 2, title: 'Volume Two The Mass',
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio, eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed ipsum iaculis lacinia." )
-Product.create(id: 3, title: 'Volume 3 The Nativity',
+Product.create(id: 3, title: 'Volume Three The Nativity',
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio, eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed ipsum iaculis lacinia." )
-Product.create(id: 4, title: 'Volume 4 Celebrate Christmas',
+Product.create(id: 4, title: 'Volume Four Celebrate Christmas',
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio, eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed ipsum iaculis lacinia." )
-Product.create(id: 5, title: 'Volume 5 Lent / Easter',
+Product.create(id: 5, title: 'Volume Five Lent / Easter',
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio, eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed ipsum iaculis lacinia." )
-Product.create(id: 6, title: 'Volume 6 More Liturgical Music',
+Product.create(id: 6, title: 'Volume Six More Liturgical Music',
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio, eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed ipsum iaculis lacinia." )
 
 Song.delete_all
@@ -72,7 +72,7 @@ Song.create(product_id: 2, title: 'Echo Our Father')
 Song.create(product_id: 2, title: 'Peace I Give To You')
 Song.create(product_id: 2, title: 'The Peace Of God')
 Song.create(product_id: 2, title: 'Be Still For The Presence')
-Song.create(product_id: 2, title: 'Jesus, You\'Re The One')
+Song.create(product_id: 2, title: 'Jesus, You\'re The One')
 Song.create(product_id: 2, title: 'My Lord And My God')
 Song.create(product_id: 2, title: 'One Bread, One Body')
 Song.create(product_id: 2, title: 'This Is My Body')
@@ -98,7 +98,7 @@ Song.create(product_id: 3, title: 'Star In The Sky')
 Song.create(product_id: 3, title: 'Have You Got A Room?')
 Song.create(product_id: 3, title: 'Nobody Wants To Know')
 Song.create(product_id: 3, title: 'The Inn Is Full')
-Song.create(product_id: 3, title: 'There Isn\'T Any Room')
+Song.create(product_id: 3, title: 'There Isn\'t Any Room')
 Song.create(product_id: 3, title: 'Do You Hear What I Hear?')
 Song.create(product_id: 3, title: 'It Was On A Starry Night')
 Song.create(product_id: 3, title: 'Shepherds Sleeping')
@@ -208,7 +208,7 @@ Song.create(product_id: 6, title: 'Whatsoever You Do')
 
 
 Format.delete_all
-Format.create(id: 1, title: 'Music CD / lyrics on CD')
+Format.create(id: 1, title: 'Music CD + lyrics on CD')
 Format.create(id: 2, title: 'Music CD only')
 Format.create(id: 3, title: 'Lyrics on CD only')
 
