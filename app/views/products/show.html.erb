@@ -17,13 +17,16 @@
   </p>
   <p>
     <%= link_to 'Edit', edit_product_path(@product) %> |
-    <%= link_to 'Back', products_path %>
+    <%= link_to 'Continue shopping', root_path %>
   </p>
 </div>
 <div id="product_payment">
-   <% @product.format_products.each do |format_product| %>
+   <% @product.format_products.order('price DESC').each do |format_product| %>
       <% title = format_product.format.title %>
-      <%= radio_button_tag 'format', format_product.id %>
+
+      <%= radio_button_tag 'format',
+                           format_product.id,
+                           format_product.checked %>
       <%= label_tag "format_#{format_product.id}",
                     sanitize("#{title} (#{number_to_currency(format_product.price, unit: '&pound; ')})") %>
       <br />
@@ -32,7 +35,6 @@
 
 <div id="product_songs">
   <% first_song = @product.songs.first.id %>
-  <% song_count = @product.song_count %>
 
   <audio controls="none" preload="none" id="player">
     <source src="<%= path_to_audio("#{first_song}.mp3") %>" type="audio/mpeg" />
@@ -44,7 +46,7 @@
     <table id="song_listing">
     <tr>
       <th colspan="6">
-        Track samples (<%= pluralize(song_count, 'track') %>):
+        Track samples (<%= pluralize(@product.song_count, 'track') %>):
       </th>
     </tr>
     <tr>
@@ -62,7 +64,9 @@
                        'data-ogg' => path_to_audio("#{song.id}.ogg"),
                        'data-mp3' => path_to_audio("#{song.id}.mp3"),
                        'data-playing' => 'n',
-                        class: 'play_button') %>
+                        class: 'play_button') do
+                image_tag asset_path('control-play.gif')
+             end %>
           <% end %>
         </td>
         <td>

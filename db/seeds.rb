@@ -8,17 +8,17 @@
 
 Product.delete_all
 
-Product.create(id: 1, title: 'Volume One Liturgical Music',
+Product.create(id: 1, title: 'Volume One - Liturgical Music',
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio, eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed ipsum iaculis lacinia." )
-Product.create(id: 2, title: 'Volume Two The Mass',
+Product.create(id: 2, title: 'Volume Two - The Mass',
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio, eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed ipsum iaculis lacinia." )
-Product.create(id: 3, title: 'Volume Three The Nativity',
+Product.create(id: 3, title: 'Volume Three - The Nativity',
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio, eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed ipsum iaculis lacinia." )
-Product.create(id: 4, title: 'Volume Four Celebrate Christmas',
+Product.create(id: 4, title: 'Volume Four - Celebrate Christmas',
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio, eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed ipsum iaculis lacinia." )
-Product.create(id: 5, title: 'Volume Five Lent / Easter',
+Product.create(id: 5, title: 'Volume Five - Lent / Easter',
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio, eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed ipsum iaculis lacinia." )
-Product.create(id: 6, title: 'Volume Six More Liturgical Music',
+Product.create(id: 6, title: 'Volume Six - More Liturgical Music',
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat accumsan lacus adipiscing viverra. Suspendisse potenti. Etiam accumsan urna a dolor ullamcorper consectetur. Maecenas cursus auctor pharetra. Ut in interdum erat. Etiam ultricies porta aliquam. Nullam est lorem, vestibulum in pulvinar eget, mattis quis est. Vestibulum nec eleifend eros. Nam bibendum nulla odio, eget mattis lorem. Suspendisse consequat scelerisque ipsum, et cursus libero dapibus nec. Sed magna lacus, molestie vitae mollis et, sagittis eu enim. Vivamus tellus urna, posuere ut sollicitudin eget, mollis ac odio. Donec ac purus sed ipsum iaculis lacinia." )
 
 Song.delete_all

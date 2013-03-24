@@ -9,12 +9,18 @@
 <body class="<%= controller.controller_name %>">
 <div>
 <header>M U S I C   B E E</header>
-<nav>NAV AREAR</nav>
+<nav>
+  <div>
+    <%= link_to_unless_current "Home/Store", root_path %>
+    <span class="separator"> | </span>
+    <%= link_to_unless_current "About", about_path %>
+  </div>
+</nav>
 <aside>BASKET</aside>
 <section>
   <%= yield %>
 </section>
-<footer>FOOTER</footer>
+<footer>Copyright © 2008 Music Bee</footer>
 </div>
 
 

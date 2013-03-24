@@ -1,3 +1,53 @@
 // Place all the styles related to the Store controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$text_color: #226;
+@import 'blueprint';
+.store {
+  .product_image {
+    @include column(4);
+    position: relative;
+    a {
+      position: absolute;
+      left: 10px;
+      border: none;
+    }
+  }
+  .product_details {
+    @include column(14);
+    @include last;
+    h3 {
+      font-size: 160%;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: $text_color;
+    }
+    h4 {
+      font-size: 130%;
+      margin-bottom: 3px;
+    }
+  }
+
+  .song_title {
+    font-weight: bold;
+    font-size: 110%;
+  }
+  .list_line_odd, .list_line_even {
+    @include column(18);
+    margin-bottom: 0px;
+    padding: {
+      top: 15px;
+      bottom: 10px;
+    }
+  }
+
+  .list_line_even {
+    @include column(18);
+    background-color: #c6aec7;
+    padding: {
+      top: 15px;
+      bottom: 10px;
+    }
+  }
+}

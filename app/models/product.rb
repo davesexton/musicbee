@@ -8,10 +8,8 @@ class Product < ActiveRecord::Base
   validates :title, :description, presence: true
   validates :title, uniqueness: true
 
-
   def song_sample
-    s = songs.sample(3).map {|s| s.title }.join("', '")
-    "'#{s}'"
+    songs.sample(3)
   end
 
   def image_url
@@ -20,6 +18,10 @@ class Product < ActiveRecord::Base
 
   def song_count
     songs.count
+  end
+
+  def default_price_id
+    format_products.order('price DESC').first.id
   end
 
 end

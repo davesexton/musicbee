@@ -1,23 +1,21 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
-
 @import 'compass';
 @import 'compass/reset';
 @import 'blueprint';
+@import 'store';
+@import 'songs';
+@import 'scaffolds';
+@import 'products';
+@import 'about';
 
 body > div {
   @include container;
+}
+p, h1, div {
+  margin-bottom: 1em;
+}
+
+h3 {
+  font-size: 120%;
 }
 
 aside {
@@ -42,7 +40,12 @@ section {
     bottom: 1em;
   }
 }
-
+.separator {
+  padding: {
+    left: 0.5em;
+    right: 0.5em;
+  }
+}
 header {
   @include column(24);
   height: 75px;
@@ -56,13 +59,16 @@ footer {
 }
 nav {
   @include column(24);
-  background-color: #c6aec7;
-}
-
-.list_line_odd {
-
-}
-
-.list_line_even {
- background-color: #c6aec7;
+  @include last;
+  background-color: #000;
+  color: #fff;
+  div {
+    @include column(23);
+    @include append(1);
+    @include last;
+    text-align: right;
+    padding: 0.5em;
+    font-size: 1.1em;
+    margin-bottom: 0px;
+  }
 }

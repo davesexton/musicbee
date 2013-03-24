@@ -1,8 +1,14 @@
 Musicbee::Application.routes.draw do
+
+  resources :carts
+
+
+  match 'about' => 'about#index'
+  get "about/index"
+
   get "store/index"
 
   resources :songs
-
 
   resources :products
 

@@ -1,20 +1,41 @@
-<h1>Store#index</h1>
-<%= root_url %>
-<table class="">
-  <% @products.each do |product| %>
-  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-    <td>
-      <h3><%= product.title %></h3>
-      <p>
-        <%= product.description.truncate(120, separator: ' ') %>
-        <%= link_to '(more)', product %>
-      </p>
-      <p>
-        <b>Songs include:</b>
-        <%= product.song_sample %>
-        <%= link_to '(full listing)', product %>
-      </p>
-    </td>
-  </tr>
+<div>
+  <%= render 'about/first_paragraph' %>
+  <%= link_to '(read more)', about_path %>
+</div>
+<div>
+  <h1>Music Bee Catalogue</h1>
+</div>
+<div>
+  <% @format_products.each do |format_product| %>
+    <div class="<%= cycle('list_line_odd', 'list_line_even') %>">
+       <div class="product_image">
+         <%= link_to(image_tag(image_path(format_product.product.image_url),
+                  alt: "#{format_product.product.title} cover",
+                  class: 'cover_image',
+                  title: "#{format_product.product.title} cover",
+                  size: '120x167'
+                  ), format_product.product) %>
+      </div>
+      <div class="product_details">
+        <h3><%= format_product.product.title %></h3>
+        <h4>
+          Format: <%= format_product.format.title %>
+          (<%= number_to_currency(format_product.price, unit: '&pound; ') %>)
+        </h4>
+        <p>
+          <%= format_product.product.description.truncate(120, separator: ' ') %>
+          <%= link_to '(more)', format_product.product %>
+        </p>
+        <p>
+          Tracks include:<br />
+          <% format_product.product.song_sample.each do |song| %>
+            <span class="song_title">&#8220;<%= song.title %>&#8221;</span>,
+          <% end %>
+          <%= link_to '(full listing)', format_product.product %>
+        </p>
+        <p>Buy Now</p>
+      </div>
+    </div>
   <% end %>
-</table>
+
+</div>
