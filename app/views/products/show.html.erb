@@ -31,6 +31,13 @@
                     sanitize("#{title} (#{number_to_currency(format_product.price, unit: '&pound; ')})") %>
       <br />
     <% end %>
+    <%= button_to 'Add to Cart', line_items_path(product_id: @product) %>
+
+
+    <% @product.format_products.order('price DESC').each do |format_product| %>
+      <%= button_to format_product.format.title,
+                    line_items_path(format_product_id: format_product) %>
+    <% end %>
 </div>
 
 <div id="product_songs">

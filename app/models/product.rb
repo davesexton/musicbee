@@ -5,6 +5,9 @@ class Product < ActiveRecord::Base
   has_many :formats, :through => :format_products
   has_many :songs
 
+  #has_many :line_items
+  #before_destroy :ensure_not_referenced_by_any_line_item
+
   validates :title, :description, presence: true
   validates :title, uniqueness: true
 
@@ -23,5 +26,7 @@ class Product < ActiveRecord::Base
   def default_price_id
     format_products.order('price DESC').first.id
   end
+
+
 
 end
