@@ -32,6 +32,27 @@ h1 {
   font-weight: bold;
 }
 
+label:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
+#notice {
+  position: fixed;
+  left: 0px;
+  top: -60px;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  font-size: 200%;
+  div {
+    margin-top: 10px;
+  }
+}
 section {
   @include column(18);
   @include last;
@@ -71,4 +92,7 @@ nav {
     font-size: 1.1em;
     margin-bottom: 0px;
   }
+}
+.price {
+  text-align: right;
 }

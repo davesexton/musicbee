@@ -4,4 +4,9 @@ class LineItem < ActiveRecord::Base
   belongs_to :format_product
   belongs_to :cart
 
+  def total_price
+    price * amount
+  end
+
+
 end

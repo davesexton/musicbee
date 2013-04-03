@@ -10,3 +10,15 @@ d.createElement 'hgroup'
 d.createElement 'footer'
 d.createElement 'section'
 d.createElement 'aside'
+
+
+
+$ ->
+  $('#notice').animate {
+    top: 0
+  }, 500, ->
+    setTimeout ->
+      $('#notice').animate {
+        top: -60
+      }, 500
+    , 3000

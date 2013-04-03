@@ -44,11 +44,11 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    format_product = FormatProduct.find(params[:format_product_id])
+    format_product = FormatProduct.find(params[:format_product])
 
     line_item = LineItem.where('cart_id = ? AND format_product_id = ?',
                                @cart.id, format_product.id).first
-#debugger
+
     if line_item
       @line_item = line_item
       @line_item.amount += 1
@@ -61,8 +61,10 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
-        format.json { render json: @line_item, status: :created, location: @line_item }
+        msg = "Added to shopping cart '#{@line_item.format_product.product.title}'"
+        format.html { redirect_to root_url, notice: msg }
+        format.json { render json: @line_item, status: :created,
+                             location: @line_item }
       else
         format.html { render action: "new" }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }

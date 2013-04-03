@@ -1,8 +1,10 @@
 class CartsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
+
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    @carts = Cart.where('id = ?', session[:cart_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
-    @cart = Cart.find(params[:id])
+    @cart = Cart.find(session[:cart_id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -72,12 +74,21 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    @cart = Cart.find(params[:id])
+    @cart = Cart.find(session[:cart_id])
     @cart.destroy
+    session[:cart_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to carts_url }
+      format.html { redirect_to root_url, notice: 'Your shopping cart is empty' }
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def invalid_cart
+    logger.error "Attempt to access invalid cart #{params[:id]}"
+    redirect_to root_url, notice: 'Invalid shopping cart'
+  end
+
 end

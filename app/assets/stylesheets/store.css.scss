@@ -4,6 +4,7 @@
 
 $text_color: #226;
 @import 'blueprint';
+
 .store {
   .product_image {
     @include column(4);

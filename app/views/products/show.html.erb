@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div id="product_image">
   <%= image_tag(image_path(@product.image_url),
                 alt: "#{@product.title} cover",
@@ -21,22 +20,21 @@
   </p>
 </div>
 <div id="product_payment">
-   <% @product.format_products.order('price DESC').each do |format_product| %>
+    <%= form_tag '/line_items' do %>
+
+    <% @product.format_products.order('price DESC').each do |format_product| %>
       <% title = format_product.format.title %>
 
-      <%= radio_button_tag 'format',
+      <%= radio_button_tag 'format_product',
                            format_product.id,
                            format_product.checked %>
-      <%= label_tag "format_#{format_product.id}",
+      <%= label_tag "format_product_#{format_product.id}",
                     sanitize("#{title} (#{number_to_currency(format_product.price, unit: '&pound; ')})") %>
       <br />
     <% end %>
-    <%= button_to 'Add to Cart', line_items_path(product_id: @product) %>
 
 
-    <% @product.format_products.order('price DESC').each do |format_product| %>
-      <%= button_to format_product.format.title,
-                    line_items_path(format_product_id: format_product) %>
+      <%= button_tag 'Buy now' %>
     <% end %>
 </div>
 

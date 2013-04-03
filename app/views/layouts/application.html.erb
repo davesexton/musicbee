@@ -16,13 +16,18 @@
     <%= link_to_unless_current "About", about_path %>
   </div>
 </nav>
-<aside>BASKET</aside>
+<aside>
+Shopping Cart
+</aside>
 <section>
   <%= yield %>
 </section>
 <footer>Copyright © 2008 Music Bee</footer>
 </div>
-
-
+<% if notice %>
+  <div id="notice">
+    <div><%= notice %></div>
+  </div>
+<% end %>
 </body>
 </html>

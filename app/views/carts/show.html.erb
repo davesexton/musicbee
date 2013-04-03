@@ -1,5 +1,36 @@
-<p id="notice"><%= notice %></p>
 
+
+
+<table class="">
+  <tr>
+    <th>Item</th>
+    <th>Format</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Total</th>
+  </tr>
+<% @cart.line_items.each do |line_item| %>
+  <tr>
+    <td><%= line_item.format_product.product.title %></td>
+    <td><%= line_item.format_product.format.title %></td>
+    <td class="price">
+      <%= number_to_currency(line_item.price,
+                             unit: '&pound; ') %>
+    </td>
+    <td><%= line_item.amount %></td>
+    <td class="price">
+      <%= number_to_currency(line_item.total_price,
+                             unit: '&pound; ') %>
+    </td>
+  </tr>
+<% end %>
+  <tr>
+    <td colspan="3">&nbsp;</td>
+    <td><%= @cart.line_items.sum(:amount) %></td>
+    <td><%= number_to_currency(@cart.line_items.sum(){|li| li.total_price},
+                              unit: '&pound; ') %></td>
+  </tr>
+</table>
 
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>
