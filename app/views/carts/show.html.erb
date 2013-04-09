@@ -1,34 +1,41 @@
-
-
-
+<% @title = 'Checkout' %>
+<p>PLease check you order carefully</p>
 <table class="">
   <tr>
-    <th>Item</th>
-    <th>Format</th>
-    <th>Price</th>
-    <th>Quantity</th>
-    <th>Total</th>
+    <th>Item/Format</th>
+    <th class="item_price">Price</th>
+    <th class="item_price">Qty</th>
+    <th class="item_price">Total</th>
+    <th>&nbsp;</th>
   </tr>
 <% @cart.line_items.each do |line_item| %>
   <tr>
-    <td><%= line_item.format_product.product.title %></td>
-    <td><%= line_item.format_product.format.title %></td>
-    <td class="price">
+    <td><%= line_item.format_product.product.title %><br />
+        <%= line_item.format_product.format.title %></td>
+    <td class="item_price">
       <%= number_to_currency(line_item.price,
                              unit: '&pound; ') %>
     </td>
-    <td><%= line_item.amount %></td>
-    <td class="price">
+    <td class="item_price"><%= line_item.amount %></td>
+    <td class="item_price">
       <%= number_to_currency(line_item.total_price,
                              unit: '&pound; ') %>
     </td>
+    <td>
+      <% button_title = 'Remove' %>
+      <% button_title += ' 1' unless line_item.amount == 1 %>
+      <%= button_to button_title,
+                    line_item_path(line_item),
+                    method: :delete %>
+    </td>
   </tr>
 <% end %>
-  <tr>
-    <td colspan="3">&nbsp;</td>
-    <td><%= @cart.line_items.sum(:amount) %></td>
-    <td><%= number_to_currency(@cart.line_items.sum(){|li| li.total_price},
+  <tr class="total_line">
+    <td class="item_price" colspan="2">Totals</td>
+    <td class="item_price"><%= @cart.line_items.sum(:amount) %></td>
+    <td class="total_cell"><%= number_to_currency(@cart.line_items.sum(){|li| li.total_price},
                               unit: '&pound; ') %></td>
+    <td>&nbsp;</td>
   </tr>
 </table>
 

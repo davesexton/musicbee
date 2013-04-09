@@ -14,7 +14,17 @@
       font-weight: bold;
     }
   }
-
+  h3 {
+    border-bottom: 2px #cccccc solid;
+    font-size: 200%;
+    font-weight: bold;
+    color: #cccccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .format {
+    font-size: 120%;
+  }
   .cover_image {
     width: 190px;
     height: 265px;

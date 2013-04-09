@@ -11,14 +11,17 @@ d.createElement 'footer'
 d.createElement 'section'
 d.createElement 'aside'
 
-
+w = this
+window.flash_notice = ->
+  if $('#notice div').html() != ""
+    $('#notice').animate {
+      top: 0
+    }, 500, ->
+      setTimeout ->
+        $('#notice').animate {
+          top: -60
+        }, 500
+      , 3000
 
 $ ->
-  $('#notice').animate {
-    top: 0
-  }, 500, ->
-    setTimeout ->
-      $('#notice').animate {
-        top: -60
-      }, 500
-    , 3000
+  flash_notice()

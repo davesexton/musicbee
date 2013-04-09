@@ -1,3 +1,4 @@
+<% @title = 'Products' %>
 <div id="product_image">
   <%= image_tag(image_path(@product.image_url),
                 alt: "#{@product.title} cover",
@@ -20,22 +21,23 @@
   </p>
 </div>
 <div id="product_payment">
-    <%= form_tag '/line_items' do %>
+  <h3>Buy Now</h3>
+  <p>Select From These Formats:</p>
+  <%= form_tag '/line_items' do %>
 
     <% @product.format_products.order('price DESC').each do |format_product| %>
       <% title = format_product.format.title %>
-
-      <%= radio_button_tag 'format_product',
-                           format_product.id,
-                           format_product.checked %>
-      <%= label_tag "format_product_#{format_product.id}",
-                    sanitize("#{title} (#{number_to_currency(format_product.price, unit: '&pound; ')})") %>
-      <br />
+      <div class="format">
+        <%= radio_button_tag 'format_product_id',
+                             format_product.id,
+                             format_product.checked %>
+        <%= label_tag "format_product_#{format_product.id}",
+                      sanitize("#{title} (#{number_to_currency(format_product.price, unit: '&pound; ')})") %>
+      </div>
     <% end %>
 
-
-      <%= button_tag 'Buy now' %>
-    <% end %>
+    <%= button_tag '+ ADD TO CART', class: 'buy_button' %>
+  <% end %>
 </div>
 
 <div id="product_songs">
@@ -64,14 +66,14 @@
       <% song_group.each do |song| %>
       <td>
         <% if song %>
-        <%= button_tag('Play',
-                       type: 'button',
-                       'data-ogg' => path_to_audio("#{song.id}.ogg"),
-                       'data-mp3' => path_to_audio("#{song.id}.mp3"),
-                       'data-playing' => 'n',
-                        class: 'play_button') do
-                image_tag asset_path('control-play.gif')
-             end %>
+          <%= button_tag('Play',
+                         type: 'button',
+                         'data-ogg' => path_to_audio("#{song.id}.ogg"),
+                         'data-mp3' => path_to_audio("#{song.id}.mp3"),
+                         'data-playing' => 'n',
+                          class: 'play_button') do
+                  image_tag asset_path('control-play.gif')
+               end %>
           <% end %>
         </td>
         <td>

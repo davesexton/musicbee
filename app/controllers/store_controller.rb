@@ -1,4 +1,7 @@
 class StoreController < ApplicationController
+
+  before_filter :set_cart
+
   def index
 
     @format_products = FormatProduct.order('price DESC')

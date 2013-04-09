@@ -1,11 +1,14 @@
 @import 'compass';
 @import 'compass/reset';
+@import 'compass/css3/border-radius';
+@import 'compass/css3/box-shadow';
 @import 'blueprint';
 @import 'store';
 @import 'songs';
 @import 'scaffolds';
 @import 'products';
 @import 'about';
+@import 'carts';
 
 body > div {
   @include container;
@@ -67,11 +70,20 @@ section {
     right: 0.5em;
   }
 }
+.buy_button {
+  @include border-radius(25px);
+  @include box-shadow(black, 3px);
+  font-size: 150%;
+  background-color: #ff0000;
+  color: #ffffff;
+  margin: 10px;
+}
 header {
   @include column(24);
   height: 75px;
-  font-size: 24pt;
+  font-size: 200%;
   padding-top: 10px;
+  position: relative;
 }
 footer {
   @include column(24);
@@ -79,20 +91,10 @@ footer {
   background-color: #c6aec7;
 }
 nav {
-  @include column(24);
-  @include last;
-  background-color: #000;
-  color: #fff;
-  div {
-    @include column(23);
-    @include append(1);
-    @include last;
-    text-align: right;
-    padding: 0.5em;
-    font-size: 1.1em;
-    margin-bottom: 0px;
-  }
-}
-.price {
+  font-size: 60%;
+  position: absolute;
+  top: 0px;
+  width: 95%;
+  margin: 10px;
   text-align: right;
 }

@@ -2,11 +2,10 @@ class LineItemsController < ApplicationController
   # GET /line_items
   # GET /line_items.json
 
-  before_filter :set_cart, only: [:create]
-  #before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  #before_filter :set_cart, only: [:create]
 
   def index
-    @line_items = LineItem.all
+    @line_items = LineItem.where('cart_id = ?', session[:cart_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +43,7 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    format_product = FormatProduct.find(params[:format_product])
+    format_product = FormatProduct.find(params[:format_product_id])
 
     line_item = LineItem.where('cart_id = ? AND format_product_id = ?',
                                @cart.id, format_product.id).first
@@ -61,8 +60,9 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        msg = "Added to shopping cart '#{@line_item.format_product.product.title}'"
-        format.html { redirect_to root_url, notice: msg }
+        @msg = "Added to shopping cart '#{@line_item.format_product.product.title}'"
+        format.html { redirect_to root_url, notice: @msg }
+        format.js
         format.json { render json: @line_item, status: :created,
                              location: @line_item }
       else
@@ -92,10 +92,15 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1.json
   def destroy
     @line_item = LineItem.find(params[:id])
-    @line_item.destroy
+    if @line_item.amount == 1
+      @line_item.destroy
+    else
+      @line_item.amount -= 1
+      @line_item.save
+    end
 
     respond_to do |format|
-      format.html { redirect_to line_items_url }
+      format.html { redirect_to cart_url }
       format.json { head :no_content }
     end
   end

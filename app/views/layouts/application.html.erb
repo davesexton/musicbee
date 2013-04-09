@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Musicbee</title>
+  <title>Music Bee<%= ' - ' + @title unless @title == nil %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_name %>">
 <div>
-<header>M U S I C   B E E</header>
-<nav>
-  <div>
+<header>M U S I C   B E E
+  <nav>
     <%= link_to_unless_current "Home/Store", root_path %>
     <span class="separator"> | </span>
-    <%= link_to_unless_current "About", about_path %>
-  </div>
-</nav>
+    <%= link_to_unless_current "About Us", about_path %>
+  </nav>
+</header>
 <aside>
 Shopping Cart
+<div id="cart">
+  <%= render @cart %>
+</div>
+
 </aside>
 <section>
   <%= yield %>
 </section>
 <footer>Copyright © 2008 Music Bee</footer>
 </div>
-<% if notice %>
-  <div id="notice">
+ <div id="notice">
     <div><%= notice %></div>
   </div>
+<% if notice %>
+
 <% end %>
 </body>
 </html>
