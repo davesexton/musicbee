@@ -17,3 +17,8 @@
 # Ignore gedit tempfiles.
 *~
 *.*~
+
+# Ingnore audio files
+/public/audios/*.wav
+/public/audios/*.ogg
+/public/audios/*.mp3
