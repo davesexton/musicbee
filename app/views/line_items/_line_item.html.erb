@@ -1,12 +1,9 @@
 <tr>
   <td>
-    <%= line_item.amount %>
-    &times;
+    <%= line_item.amount %>&nbsp;&times;&nbsp;
   </td>
   <td>
-    <%= line_item.format_product.product.title %>
-  </td>
-  <td class="item_price">
-    <%= number_to_currency(line_item.total_price) %>
+    <%= line_item.format_product.product.title %><br />
+    <%= line_item.format_product.format.title %>
   </td>
 </tr>

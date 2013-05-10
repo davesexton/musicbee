@@ -21,7 +21,7 @@
         <h3><%= format_product.product.title %></h3>
         <h4>
           Format: <%= format_product.format.title %>
-          (<%= number_to_currency(format_product.price, unit: '&pound; ') %>)
+          (<%= number_to_currency(format_product.price, unit: '&pound;') %>)
         </h4>
         <p>
           <%= format_product.product.description.truncate(120, separator: ' ') %>

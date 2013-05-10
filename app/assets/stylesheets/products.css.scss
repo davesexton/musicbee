@@ -39,12 +39,12 @@
     padding-top: 1em;
   }
   #product_desc {
-    @include column(12);
+    @include column(11);
     @include last;
     padding-top: 1em;
   }
   #product_payment, #product_songs {
-    @include column(18);
+    @include column(17);
     @include last;
     padding-top: 1em;
     label {

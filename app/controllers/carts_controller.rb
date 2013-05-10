@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
+  #before_filter :redirect_empty_cart, :only => :index
 
   # GET /carts
   # GET /carts.json
@@ -17,10 +18,15 @@ class CartsController < ApplicationController
   def show
     @cart = Cart.find(session[:cart_id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @cart }
+    if @cart.total_items == 0
+      redirect_to store_index_url
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @cart }
+      end
     end
+
   end
 
   # GET /carts/new

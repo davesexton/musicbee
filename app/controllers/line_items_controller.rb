@@ -60,7 +60,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        @msg = "Added to shopping cart '#{@line_item.format_product.product.title}'"
+        @msg = "Added '#{@line_item.format_product.product.title}' to shopping cart"
         format.html { redirect_to root_url, notice: @msg }
         format.js
         format.json { render json: @line_item, status: :created,

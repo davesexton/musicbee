@@ -22,10 +22,10 @@ h3 {
 }
 
 aside {
-  @include column(6);
-  padding: {
-    top: 1em;
-    bottom: 1em;
+  @include column(7);
+  background-color: #00ffff;
+  div {
+    padding: 5px;
   }
 }
 
@@ -57,7 +57,7 @@ button:hover {
   }
 }
 section {
-  @include column(18);
+  @include column(17);
   @include last;
   padding: {
     top: 1em;
@@ -77,6 +77,19 @@ section {
   background-color: #ff0000;
   color: #ffffff;
   margin: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.empty_button {
+  @include border-radius(25px);
+  @include box-shadow(black, 3px);
+  font-size: 150%;
+  color: #ffffff;
+  margin: 10px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 header {
   @include column(24);

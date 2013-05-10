@@ -32,9 +32,12 @@
 <% end %>
   <tr class="total_line">
     <td class="item_price" colspan="2">Totals</td>
-    <td class="item_price"><%= @cart.line_items.sum(:amount) %></td>
-    <td class="total_cell"><%= number_to_currency(@cart.line_items.sum(){|li| li.total_price},
-                              unit: '&pound; ') %></td>
+    <td class="item_price">
+      <%= @cart.line_items.sum(:amount) %>
+    </td>
+    <td class="total_cell">
+      <%= number_to_currency(@cart.total_price, unit: '&pound;') %>
+    </td>
     <td>&nbsp;</td>
   </tr>
 </table>

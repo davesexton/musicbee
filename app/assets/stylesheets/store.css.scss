@@ -16,7 +16,7 @@ $text_color: #226;
     }
   }
   .product_details {
-    @include column(14);
+    @include column(13);
     @include last;
     h3 {
       font-size: 160%;
@@ -35,7 +35,7 @@ $text_color: #226;
     font-size: 110%;
   }
   .list_line_odd, .list_line_even {
-    @include column(18);
+    @include column(17);
     margin-bottom: 0px;
     padding: {
       top: 15px;
@@ -44,7 +44,7 @@ $text_color: #226;
   }
 
   .list_line_even {
-    @include column(18);
+    @include column(17);
     background-color: #c6aec7;
     padding: {
       top: 15px;
