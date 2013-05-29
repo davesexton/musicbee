@@ -31,7 +31,7 @@
           Contains <%= pluralize(format_product.product.songs.count, 'track') %>
           including:<br />
           <% format_product.product.song_sample.each do |song| %>
-            <span class="song_title">&#8220;<%= song.title %>&#8221;; </span>
+            <span class="song_title">&#8220;<%= song.title %>&#8221; ~ </span>
           <% end %>
           <%= link_to '(full listing)', format_product.product %>
         </p>

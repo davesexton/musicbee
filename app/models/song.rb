@@ -5,4 +5,8 @@ class Song < ActiveRecord::Base
 
   validates :title, presence: true
 
+  def title
+    read_attribute(:title).upcase
+  end
+
 end

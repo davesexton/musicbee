@@ -1,4 +1,9 @@
 <% @title = 'Products' %>
+<div id="product_title">
+  <h1>
+    <%= @product.title %>
+  </h1>
+</div>
 <div id="product_image">
   <%= image_tag(image_path(@product.image_url),
                 alt: "#{@product.title} cover",
@@ -8,9 +13,7 @@
                 ) %>
 </div>
 <div id="product_desc">
-  <h1>
-    <%= @product.title %>
-  </h1>
+
   <p>
     <b>Description:</b>
     <%= @product.description %>

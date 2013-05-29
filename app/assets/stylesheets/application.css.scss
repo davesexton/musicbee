@@ -10,11 +10,16 @@
 @import 'about';
 @import 'carts';
 
+*, table {
+  font-size: 8pt;
+}
+
 body > div {
   @include container;
 }
 p, h1, div {
   margin-bottom: 1em;
+  line-height: 120%;
 }
 
 h3 {
@@ -26,6 +31,10 @@ aside {
   background-color: #00ffff;
   div {
     padding: 5px;
+  }
+  padding: {
+    top: 1em;
+    bottom: 1em;
   }
 }
 
@@ -93,7 +102,7 @@ section {
 }
 header {
   @include column(24);
-  height: 75px;
+  height: 200px;
   font-size: 200%;
   padding-top: 10px;
   position: relative;
