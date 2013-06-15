@@ -10,6 +10,15 @@ d.createElement 'hgroup'
 d.createElement 'footer'
 d.createElement 'section'
 d.createElement 'aside'
+window.requestAnimFrame = ((callback) ->
+  window.requestAnimationFrame ||
+  window.webkitRequestAnimationFrame ||
+  window.mozRequestAnimationFrame ||
+  window.oRequestAnimationFrame ||
+  window.msRequestAnimationFrame ||
+  (callback) ->
+     window.setTimeout(callback, 1000 / 60)
+)()
 
 w = this
 window.flash_notice = ->
@@ -92,5 +101,8 @@ $ ->
     context.clearRect 0, 0, canvas_width, canvas_height
     bee.draw context
     setTimeout animate, 33
-  if bee.body.complete
-    animate()
+    #window.requestAnimFrame( ->
+    #  animate()
+    #)
+#  if bee.body.complete
+  animate()
