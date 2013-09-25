@@ -1,0 +1,11 @@
+%p
+  %b Product: #{@song.product_id}
+
+%p
+  %b Title: #{@song.title}
+
+%p
+  %b Description: #{@song.description}
+
+= link_to 'Edit', edit_song_path(@song)  |
+= link_to 'Back', songs_path

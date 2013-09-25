@@ -1,0 +1,21 @@
+%h2 Your Shopping Cart
+- if cart.total_items == 0
+  There are currently no items in your shopping cart
+- elsif controller.controller_name == 'carts'
+  Checkout
+- else
+  %table
+    = render(cart.line_items)
+    %tr.total_line
+      %td.total_cell{colspan: "2"}
+        Total: #{number_to_currency(cart.total_price, unit: '&pound;')}
+
+= button_to 'EMPTY CART',
+              cart,
+              method: :delete,
+              data: { confirm: 'Are you sure?' },
+              class: 'empty_button'
+= button_to 'CHECKOUT',
+              cart,
+              method: :get,
+              class: 'buy_button'

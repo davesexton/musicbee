@@ -1,0 +1,8 @@
+%p
+  %b Product: #{@line_item.format_product}
+%p
+  %b Cart: #{@line_item.cart}
+
+= link_to 'Edit', edit_line_item_path(@line_item)
+|
+= link_to 'Back', line_items_path

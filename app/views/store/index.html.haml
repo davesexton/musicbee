@@ -1,0 +1,46 @@
+- @title = 'Store'
+
+%div
+  = render 'about/first_paragraph'
+  = link_to '(read more)', about_path
+
+%div
+  %h1 Music Bee Catalogue
+
+%div
+  - @format_products.each do |format_product|
+    %div{class: cycle('list_line_odd', 'list_line_even')}
+      %div.product_image
+        = link_to(image_tag(image_path(format_product.product.image_url),
+                  alt: "#{format_product.product.title} cover",
+                  class: 'cover_image',
+                  title: "#{format_product.product.title} cover",
+                  size: '120x167'),
+                  format_product.product)
+
+      %div.product_details
+        %h3 #{format_product.product.title}
+        %h4
+          Format: #{format_product.format.title}
+          (
+          = number_to_currency(format_product.price, unit: '&pound;')
+          )
+
+        %p
+          = format_product.product.description.truncate(120, separator: ' ')
+          = link_to '(more)', format_product.product
+
+        %p
+          Contains
+          = pluralize(format_product.product.songs.count, 'track')
+          including:
+          %br/
+          - format_product.product.song_sample.each do |song|
+            %span.song_title
+              &#8220; #{song.title} &#8221; ~
+          = link_to '(full listing)', format_product.product
+        %p
+          = button_to '+ ADD TO CART',
+                        line_items_path(format_product_id: format_product),
+                        remote: true,
+                        class: 'buy_button'

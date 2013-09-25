@@ -1,0 +1,42 @@
+- @title = 'Checkout'
+
+%p PLease check you order carefully
+%table
+  %tr
+    %th Item/Format
+    %th.item_price Price
+    %th.item_price Qty
+    %th.item_price Total
+    %th &nbsp;
+
+  - @cart.line_items.each do |line_item|
+    %tr
+      %td
+        = line_item.format_product.product.title
+        %br/
+        = line_item.format_product.format.title
+      %td.item_price
+        = number_to_currency(line_item.price,
+                              unit: '&pound; ')
+
+      %td.item_price #{line_item.amount}
+      %td.item_price
+        = number_to_currency(line_item.total_price, unit: '&pound; ')
+
+      %td
+        - button_title = 'Remove'
+        - button_title += ' 1' unless line_item.amount == 1
+        = button_to button_title, line_item_path(line_item), method: :delete
+
+    %tr.total_line
+      %td.item_price{colspan: "2"} Totals
+      %td.item_price
+        = @cart.line_items.sum(:amount)
+
+      %td.total_cell
+        = number_to_currency(@cart.total_price, unit: '&pound;')
+      %td &nbsp;
+
+= link_to 'Edit', edit_cart_path(@cart)
+|
+= link_to 'Back', carts_path

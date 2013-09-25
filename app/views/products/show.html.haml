@@ -1,0 +1,71 @@
+- @title = 'Products'
+
+%div#product_title
+  %h1 #{@product.title}
+
+%div#product_image
+  = image_tag(image_path(@product.image_url),
+                alt: "#{@product.title} cover",
+                class: 'cover_image',
+                title: "#{@product.title} cover",
+                size: '190x265')
+
+%div#product_desc
+
+  %p
+    %b Description: #{@product.description}
+  %p
+    = link_to 'Edit', edit_product_path(@product)
+    |
+    = link_to 'Continue shopping', root_path
+
+%div#product_payment
+  %h3 Buy Now
+  %p Select From These Formats:
+  = form_tag '/line_items' do
+
+    - @product.format_products.order('price DESC').each do |format_product|
+      - title = format_product.format.title
+      %div.format
+        = radio_button_tag 'format_product_id',
+                             format_product.id,
+                             format_product.checked
+        = label_tag "format_product_#{format_product.id}",
+                    "#{title} (#{number_to_currency(format_product.price, unit: '&pound; ')})"
+
+    = button_tag '+ ADD TO CART', class: 'buy_button'
+
+%div#product_songs
+  - first_song = @product.songs.first.id
+
+  %audio#player{controls: "none", preload: "none"}
+    %source{src: path_to_audio("#{first_song}.mp3"), type: "audio/mpeg"}
+    %source{src: path_to_audio("#{first_song}.ogg"), type: "audio/ogg"}
+      xxxx
+
+  %div
+    %table#song_listing
+      %tr
+        %th{colspan: "6"}
+          Track samples (
+          = pluralize(@product.song_count, 'track')
+          ):
+      %tr
+        %td{colspan: "6"}
+          Click the buttons below to hear a 30 second sound sample of each track
+
+      - @product.songs.order(:title).in_groups(2).transpose.each do |song_group|
+        %tr
+          - song_group.each do |song|
+            %td
+              - if song
+                = button_tag('Play',
+                               type: 'button',
+                               'data-ogg' => path_to_audio("#{song.id}.ogg"),
+                               'data-mp3' => path_to_audio("#{song.id}.mp3"),
+                               'data-playing' => 'n',
+                                class: 'play_button') do
+                  = image_tag asset_path('control-play.gif')
+            %td
+              = song.title if song
+
