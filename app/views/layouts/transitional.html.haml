@@ -1,0 +1,29 @@
+!!! 5
+%html
+  %head
+    %title Music Bee #{' - ' + @title unless @title == nil}
+    = stylesheet_link_tag    "application", media:  "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body{class: controller.controller_name}
+    %div
+      %header
+        MUSIC BEE
+        %canvas#canvas_header{width: "950", height: "200"}
+        %nav
+          = link_to_unless_current "Home/Store", root_path
+          %span.separator  |
+          = link_to_unless_current "About Us", about_path
+
+      %aside
+        %div#cart #{render @cart}
+
+      %section
+        = yield
+
+      %footer Copyright © 2008 Music Bee
+
+      - if notice
+        %div#notice
+          %div #{notice}

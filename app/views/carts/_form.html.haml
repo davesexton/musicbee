@@ -1,17 +1,13 @@
-<%= form_for(@cart) do |f| %>
-  <% if @cart.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cart.errors.count, "error") %> prohibited this cart from being saved:</h2>
+= form_for(@cart) do |f|
+  - if @cart.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@cart.errors.count, "error")
+        prohibited this cart from being saved:
 
-      <ul>
-      <% @cart.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+      %ul
+        - @cart.errors.full_messages.each do |msg|
+          %li #{msg}
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  %div.actions
+    = f.submit

@@ -1,5 +1,17 @@
 Musicbee::Application.routes.draw do
 
+  get "transitional/index"
+
+  get "transitional/about"
+
+  get "transitional/samples"
+
+  get "transitional/contents"
+
+  get "transitional/order"
+
+  get "transitional/contact"
+
   resources :line_items
 
 

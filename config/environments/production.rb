@@ -64,4 +64,16 @@ Musicbee::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.action_mailer.delivery_method = :smtp
+  smtp_settings = YAML.load_file(Rails.root.join('config','config.yml'))[Rails.env]['mailer']
+  config.action_mailer.smtp_settings = {
+    address: smtp_settings['address'],
+    port: smtp_settings['port'],
+    domain: smtp_settings['domain'],
+    authentication: smtp_settings['authentication'],
+    user_name: smtp_settings['user_name'],
+    password: smtp_settings['password'],
+    enable_starttls_auto: smtp_settings['enable_starttls_auto']
+    }
 end

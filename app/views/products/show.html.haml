@@ -61,9 +61,9 @@
               - if song
                 = button_tag('Play',
                                type: 'button',
-                               'data-ogg' => path_to_audio("#{song.id}.ogg"),
-                               'data-mp3' => path_to_audio("#{song.id}.mp3"),
-                               'data-playing' => 'n',
+                               data: {ogg: path_to_audio("#{song.id}.ogg"),
+                                     mp3: path_to_audio("#{song.id}.mp3"),
+                                     playing: 'n'},
                                 class: 'play_button') do
                   = image_tag asset_path('control-play.gif')
             %td
