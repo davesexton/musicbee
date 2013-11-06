@@ -1,5 +1,5 @@
 @import 'compass';
-@import 'compass/reset';
+/*@import 'compass/reset';*/
 @import 'compass/css3/border-radius';
 @import 'compass/css3/box-shadow';
 @import 'blueprint';
@@ -10,13 +10,41 @@
 @import 'about';
 @import 'carts';
 
-*, table {
-  font-size: 8pt;
+.transitional {
+  background-image: image-url('transitional/background.jpg');
+  background-repeat: repeat-x;
+
+  header {
+    @include column(24);
+    @include last;
+  }
+
+  footer {
+    @include column(24);
+    @include last;
+    text-align: center;
+  }
+
+  aside {
+    @include column(8);
+  }
+
+  section {
+    @include column(16);
+    @include last;
+  }
+
 }
 
 body > div {
   @include container;
 }
+
+/*
+*, table {
+  font-size: 8pt;
+}
+
 p, h1, div {
   margin-bottom: 1em;
   line-height: 120%;
@@ -120,3 +148,4 @@ nav {
   margin: 10px;
   text-align: right;
 }
+*/

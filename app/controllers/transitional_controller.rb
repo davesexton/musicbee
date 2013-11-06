@@ -6,6 +6,7 @@ class TransitionalController < ApplicationController
   end
 
   def samples
+    @songs = Song.all.sample(10)
   end
 
   def contents

@@ -1,2 +1,21 @@
-%h1 Transitional#samples
-%p Find me in app/views/transitional/samples.html.haml
+%h1 Audio Track Samples
+%p Click the buttons below to hear a 30 second sound sample of each track
+
+- first_song = @songs.first.id
+
+%audio#player{controls: 'none', preload: 'none'}
+  %source{src: path_to_audio("#{first_song}.mp3"), type: 'audio/mpeg'}
+  %source{src: path_to_audio("#{first_song}.ogg"), type: 'audio/ogg'}
+    xxxx
+
+- @songs.each do |song|
+  = button_tag('Play',
+                 type: 'button',
+                 data: {ogg: path_to_audio("#{song.id}.ogg"),
+                       mp3: path_to_audio("#{song.id}.mp3"),
+                       playing: 'n'},
+                  class: 'play_button') do
+    = image_tag asset_path('control-play.gif')
+  %b=song.title
+  %i (#{song.product.title})
+  %br

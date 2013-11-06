@@ -1,32 +1,23 @@
 Musicbee::Application.routes.draw do
 
-  get "transitional/index"
 
-  get "transitional/about"
+  get 'about' => 'transitional#about'
+  get 'samples' => 'transitional#samples'
+  get 'contents' => 'transitional#contents'
+  get 'order' => 'transitional#order'
+  get 'contact' => 'transitional#contact'
 
-  get "transitional/samples"
+  #get 'about' => 'about#index'
+  #get 'about/index'
 
-  get "transitional/contents"
-
-  get "transitional/order"
-
-  get "transitional/contact"
-
-  resources :line_items
-
-
-  resources :carts
-
-
-  match 'about' => 'about#index'
-  get "about/index"
-
-  get "store/index"
+  #get 'store/index'
 
   resources :songs
-
+  resources :line_items
   resources :products
+  resources :carts
 
+  root to: 'transitional#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
