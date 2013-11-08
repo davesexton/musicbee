@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @order.name
+%p
+  %b School name:
+  = @order.school_name
+%p
+  %b Address line 1:
+  = @order.address_line_1
+%p
+  %b Address line 2:
+  = @order.address_line_2
+%p
+  %b Address line 3:
+  = @order.address_line_3
+%p
+  %b Address line 4:
+  = @order.address_line_4
+%p
+  %b Post code:
+  = @order.post_code
+%p
+  %b Email address:
+  = @order.email_address
+%p
+  %b Telephone:
+  = @order.telephone
+%p
+  %b Reference:
+  = @order.reference
+%p
+  %b Comments:
+  = @order.comments
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path

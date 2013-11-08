@@ -10,11 +10,19 @@ class TransitionalController < ApplicationController
   end
 
   def contents
+    @products = Product.all
   end
 
   def order
+    @products = Product.all
+    @order = Order.new
+  end
+
+  def order_confirmed
+
   end
 
   def contact
+    @message = Message.new
   end
 end

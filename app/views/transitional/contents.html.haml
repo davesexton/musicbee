@@ -1,2 +1,8 @@
-%h1 Transitional#contents
+%h1 Our Products
 %p Find me in app/views/transitional/contents.html.haml
+- @products.each do |product|
+  %h2=product.title
+  %b Contains #{pluralize(product.songs.length, 'song')}:
+  %br
+
+  =product.songs.map{|s| s.title}.join(' ~ ')

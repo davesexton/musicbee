@@ -1,0 +1,39 @@
+%h1 Listing orders
+
+%table
+  %tr
+    %th Name
+    %th School name
+    %th Address line 1
+    %th Address line 2
+    %th Address line 3
+    %th Address line 4
+    %th Post code
+    %th Email address
+    %th Telephone
+    %th Reference
+    %th Comments
+    %th
+    %th
+    %th
+
+  - @orders.each do |order|
+    %tr
+      %td= order.name
+      %td= order.school_name
+      %td= order.address_line_1
+      %td= order.address_line_2
+      %td= order.address_line_3
+      %td= order.address_line_4
+      %td= order.post_code
+      %td= order.email_address
+      %td= order.telephone
+      %td= order.reference
+      %td= order.comments
+      %td= link_to 'Show', order
+      %td= link_to 'Edit', edit_order_path(order)
+      %td= link_to 'Destroy', order, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Order', new_order_path

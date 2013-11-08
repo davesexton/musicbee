@@ -1,6 +1,5 @@
 Musicbee::Application.routes.draw do
 
-
   get 'about' => 'transitional#about'
   get 'samples' => 'transitional#samples'
   get 'contents' => 'transitional#contents'
@@ -16,6 +15,8 @@ Musicbee::Application.routes.draw do
   resources :line_items
   resources :products
   resources :carts
+  resources :order_items
+  resources :orders
 
   root to: 'transitional#index'
 

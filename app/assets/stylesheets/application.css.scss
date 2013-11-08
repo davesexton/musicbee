@@ -10,31 +10,31 @@
 @import 'about';
 @import 'carts';
 
-.transitional {
+body {
   background-image: image-url('transitional/background.jpg');
   background-repeat: repeat-x;
-
-  header {
-    @include column(24);
-    @include last;
-  }
-
-  footer {
-    @include column(24);
-    @include last;
-    text-align: center;
-  }
-
-  aside {
-    @include column(8);
-  }
-
-  section {
-    @include column(16);
-    @include last;
-  }
-
 }
+
+header {
+  @include column(24);
+  @include last;
+}
+
+footer {
+  @include column(24);
+  @include last;
+  text-align: center;
+}
+
+aside {
+  @include column(8);
+}
+
+section {
+  @include column(16);
+  @include last;
+}
+
 
 body > div {
   @include container;

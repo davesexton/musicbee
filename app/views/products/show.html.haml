@@ -38,9 +38,9 @@
 %div#product_songs
   - first_song = @product.songs.first.id
 
-  %audio#player{controls: "none", preload: "none"}
-    %source{src: path_to_audio("#{first_song}.mp3"), type: "audio/mpeg"}
-    %source{src: path_to_audio("#{first_song}.ogg"), type: "audio/ogg"}
+  %audio#player{controls: 'none', preload: 'none'}
+    %source{src: path_to_audio("#{first_song}.mp3"), type: 'audio/mpeg'}
+    %source{src: path_to_audio("#{first_song}.ogg"), type: 'audio/ogg'}
       xxxx
 
   %div

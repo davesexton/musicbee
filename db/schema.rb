@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327125010) do
+ActiveRecord::Schema.define(:version => 20131108221833) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -44,6 +44,38 @@ ActiveRecord::Schema.define(:version => 20130327125010) do
 
   add_index "line_items", ["cart_id"], :name => "index_line_items_on_cart_id"
   add_index "line_items", ["format_product_id"], :name => "index_line_items_on_format_product_id"
+
+  create_table "messages", :force => true do |t|
+    t.string   "email"
+    t.string   "name"
+    t.text     "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "order_items", :force => true do |t|
+    t.integer  "order_id"
+    t.decimal  "price"
+    t.integer  "quantity"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "orders", :force => true do |t|
+    t.string   "name"
+    t.string   "school_name"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "address_line_3"
+    t.string   "address_line_4"
+    t.string   "post_code"
+    t.string   "email_address"
+    t.string   "telephone"
+    t.string   "reference"
+    t.text     "comments"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "products", :force => true do |t|
     t.string   "title"

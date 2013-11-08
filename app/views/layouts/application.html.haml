@@ -10,15 +10,19 @@
     %div
       %header
         MUSIC BEE
-        %canvas#canvas_header{width: "950", height: "200"}
         %nav
-          = link_to_unless_current "Home/Store", root_path
+          = link_to_unless_current 'Home', root_path
           %span.separator  |
-          = link_to_unless_current "About Us", about_path
+          = link_to_unless_current 'Samples', samples_path
+          %span.separator  |
+          = link_to_unless_current 'CD Contents', contents_path
+          %span.separator  |
+          = link_to_unless_current 'Order', new_order_path
+          %span.separator  |
+          = link_to_unless_current 'Contact Us', contact_path
 
       %aside
-        %div#cart #{render @cart}
-
+        %canvas#canvas{width: 310, height: 500}
       %section
         = yield
 

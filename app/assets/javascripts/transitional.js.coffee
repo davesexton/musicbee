@@ -44,7 +44,7 @@ $ ->
           player.load()
 
 $ ->
-  if $('.transitional').length > 0
+  if $('#canvas').length > 0
     canvas = $('#canvas')[0]
     context = canvas.getContext('2d')
     canvas_width = canvas.width
