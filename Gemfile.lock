@@ -78,6 +78,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.21)
     multi_json (1.6.1)
+    mysql2 (0.3.13)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -138,6 +139,7 @@ DEPENDENCIES
   haml-rails
   hirb
   jquery-rails
+  mysql2
   rails (= 3.2.12)
   sass-rails (~> 3.2.6)
   sqlite3
