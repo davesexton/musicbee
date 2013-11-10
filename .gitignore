@@ -22,3 +22,7 @@
 /public/audios/*.wav
 /public/audios/*.ogg
 /public/audios/*.mp3
+
+# Sensitive data
+/config/config.yml
+/config/database.yml
