@@ -1,5 +1,11 @@
 Musicbee::Application.routes.draw do
 
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
   get 'about' => 'transitional#about'
   get 'samples' => 'transitional#samples'
   get 'contents' => 'transitional#contents'
@@ -17,6 +23,7 @@ Musicbee::Application.routes.draw do
   resources :carts
   resources :order_items
   resources :orders
+  resources :users
 
   root to: 'transitional#index'
 
