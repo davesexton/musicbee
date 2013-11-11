@@ -4,15 +4,15 @@
 - first_song = @songs.first.id
 
 %audio#player{controls: 'none', preload: 'none'}
-  %source{src: path_to_audio("#{first_song}.mp3"), type: 'audio/mpeg'}
-  %source{src: path_to_audio("#{first_song}.ogg"), type: 'audio/ogg'}
+  %source{src: "audios/#{first_song}.mp3", type: 'audio/mpeg'}
+  %source{src: "audios/#{first_song}.ogg", type: 'audio/ogg'}
     xxxx
 
 - @songs.each do |song|
   = button_tag('Play',
                  type: 'button',
-                 data: {ogg: path_to_audio("#{song.id}.ogg"),
-                       mp3: path_to_audio("#{song.id}.mp3"),
+                 data: {ogg: "audios/#{song.id}.ogg",
+                       mp3: "audios/#{song.id}.mp3",
                        playing: 'n'},
                   class: 'play_button') do
     = image_tag asset_path('control-play.gif')
