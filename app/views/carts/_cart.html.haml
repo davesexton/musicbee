@@ -7,8 +7,8 @@
   %table
     = render(cart.line_items)
     %tr.total_line
-      %td.total_cell{colspan: "2"}
-        Total: #{number_to_currency(cart.total_price, unit: '&pound;')}
+      %td.total_cell{colspan: 2}
+        Total: #{number_to_currency(cart.total_price)}
 
 = button_to 'EMPTY CART',
               cart,

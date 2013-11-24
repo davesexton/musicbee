@@ -9,6 +9,9 @@ class FormatProduct < ActiveRecord::Base
 
   validates :price, numericality: {greater_than_or_equal_to: 0.01}
 
+  def gross_price
+    price + vat
+  end
 
   def checked
     if FormatProduct.where(product_id: product_id).order('price DESC').first.id == id

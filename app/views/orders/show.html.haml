@@ -1,5 +1,29 @@
+-@title = 'Order'
 %p#notice= notice
 
+%table
+  %tr
+    %th Item
+    %th Format
+    %th Price
+    %th Qty
+    %th Total
+  -@order.order_items.each do |item|
+    %tr
+      %td=item.product.title
+      %td=item.format.title
+      %td=number_to_currency(item.gross_price)
+      %td=item.quantity
+      %td=number_to_currency(item.gross_total)
+  %tr
+    %td{colspan: 4} Net Total
+    %td=number_to_currency(@order.net_total)
+  %tr
+    %td{colspan: 4} VAT
+    %td=number_to_currency(@order.vat_total)
+  %tr
+    %td{colspan: 4} Gross Total
+    %td=number_to_currency(@order.gross_total)
 %p
   %b Name:
   = @order.name

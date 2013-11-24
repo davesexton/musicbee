@@ -5,6 +5,16 @@
       %ul
         - @order.errors.full_messages.each do |msg|
           %li= msg
+  %table
+    - @products.each do |product|
+      %tr
+        %th=product.title
+      - product.format_products.each_with_index do |fp, i|
+        %tr
+          %td=fp.format.title
+          %td=number_to_currency(fp.gross_price)
+          %td=select_tag 'format_product[]', options_for_select((0..10))
+          %td=hidden_field_tag 'format_product_id[]', fp.id
 
   .field
     = f.label :name

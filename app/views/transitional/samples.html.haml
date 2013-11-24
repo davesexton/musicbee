@@ -1,3 +1,5 @@
+-@title = 'Samples'
+
 %h1 Audio Track Samples
 %p Click the buttons below to hear a 30 second sound sample of each track
 
@@ -8,14 +10,17 @@
   %source{src: "audios/#{first_song}.ogg", type: 'audio/ogg'}
     xxxx
 
-- @songs.each do |song|
-  = button_tag('Play',
-                 type: 'button',
-                 data: {ogg: "audios/#{song.id}.ogg",
-                       mp3: "audios/#{song.id}.mp3",
-                       playing: 'n'},
-                  class: 'play_button') do
-    = image_tag asset_path('control-play.gif')
-  %b=song.title
-  %i (#{song.product.title})
-  %br
+%table
+  - @songs.each do |song|
+    %tr
+      %td
+        = button_tag('Play',
+                       type: 'button',
+                       data: {ogg: "audios/#{song.id}.ogg",
+                             mp3: "audios/#{song.id}.mp3",
+                             playing: 'n'},
+                        class: 'play_button') do
+          = image_tag asset_path('control-play.gif')
+      %td
+        %b=song.title
+        %i (#{song.product.title})

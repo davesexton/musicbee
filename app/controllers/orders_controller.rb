@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  skip_before_filter :authorize, only: [:new, :show, :edit, :create]
+
   # GET /orders
   # GET /orders.json
   def index
@@ -26,6 +28,7 @@ class OrdersController < ApplicationController
   # GET /orders/new.json
   def new
     @order = Order.new
+    @products = Product.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +39,7 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
+    @products = Product.all
   end
 
   # POST /orders
@@ -45,10 +49,20 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        params[:format_product].each_with_index do |fp, i|
+          if fp.to_i > 0
+            id = params[:format_product_id][i].to_i
+            OrderItem.create(order_id: @order.id,
+                             format_product_id: id,
+                             price: FormatProduct.find(id).price,
+                             vat: FormatProduct.find(id).vat,
+                             quantity: fp)
+          end
+        end
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
@@ -64,7 +78,7 @@ class OrdersController < ApplicationController
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end

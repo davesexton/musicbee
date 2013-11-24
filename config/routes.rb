@@ -9,13 +9,13 @@ Musicbee::Application.routes.draw do
   get 'about' => 'transitional#about'
   get 'samples' => 'transitional#samples'
   get 'contents' => 'transitional#contents'
-  get 'order' => 'transitional#order'
   get 'contact' => 'transitional#contact'
+  post 'contact' => 'transitional#contact_send'
+  get 'order_form' => 'orders#new'
 
   #get 'about' => 'about#index'
   #get 'about/index'
-
-  #get 'store/index'
+  #get 'store' => 'store#index'
 
   resources :songs
   resources :line_items
