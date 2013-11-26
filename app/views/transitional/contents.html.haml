@@ -1,7 +1,8 @@
 -@title = 'Contents'
 
 %h1 Our Products
-%p Find me in app/views/transitional/contents.html.haml
+%p
+  Lyrics for each track is supplied in a fullscreen PDF format for use with computer projectors
 - @products.each do |product|
   %h2=product.title
   %b Contains #{pluralize(product.songs.length, 'song')}:

@@ -11,43 +11,66 @@
         %th=product.title
       - product.format_products.each_with_index do |fp, i|
         %tr
-          %td=fp.format.title
-          %td=number_to_currency(fp.gross_price)
-          %td=select_tag 'format_product[]', options_for_select((0..10))
-          %td=hidden_field_tag 'format_product_id[]', fp.id
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :school_name
-    = f.text_field :school_name
-  .field
-    = f.label :address_line_1
-    = f.text_field :address_line_1
-  .field
-    = f.label :address_line_2
-    = f.text_field :address_line_2
-  .field
-    = f.label :address_line_3
-    = f.text_field :address_line_3
-  .field
-    = f.label :address_line_4
-    = f.text_field :address_line_4
-  .field
-    = f.label :post_code
-    = f.text_field :post_code
-  .field
-    = f.label :email_address
-    = f.text_field :email_address
-  .field
-    = f.label :telephone
-    = f.text_field :telephone
-  .field
-    = f.label :reference
-    = f.text_field :reference
-  .field
-    = f.label :comments
-    = f.text_area :comments
-  .actions
-    = f.submit 'Save'
+          %td
+            =fp.format.title
+            =hidden_field_tag 'format_product_id[]', fp.id
+          %td.field
+            =number_to_currency(fp.gross_price)
+          %td{data: {price: fp.price, vat: fp.vat}}
+            =select_tag 'format_product[]', options_for_select((0..10))
+          %td.field
+            =number_to_currency(0)
+    %tr
+      %td.field{colspan: 3}
+        %b Net Total
+      %td.field#net_total=number_to_currency(0)
+    %tr
+      %td.field{colspan: 3}
+        %b VAT
+      %td.field#vat_total=number_to_currency(0)
+    %tr
+      %td.field{colspan: 3}
+        %b Order Total
+      %td.field#gross_total=number_to_currency(0)
+  %hr
+  %table
+    %tr
+      %td{colspan: 2}
+        %b Plaese enter your contact details
+    %tr
+      %td= f.label :name
+      %td= f.text_field :name
+    %tr
+      %td= f.label :school_name
+      %td= f.text_field :school_name
+    %tr
+      %td= f.label :address_line_1
+      %td= f.text_field :address_line_1
+    %tr
+      %td= f.label :address_line_2
+      %td= f.text_field :address_line_2
+    %tr
+      %td= f.label :address_line_3
+      %td= f.text_field :address_line_3
+    %tr
+      %td= f.label :address_line_4
+      %td= f.text_field :address_line_4
+    %tr
+      %td= f.label :post_code
+      %td= f.text_field :post_code
+    %tr
+      %td= f.label :email_address
+      %td= f.text_field :email_address
+    %tr
+      %td= f.label :telephone
+      %td= f.text_field :telephone
+    %tr
+      %td= f.label :reference
+      %td= f.text_field :reference
+    %tr
+      %td{colspan: 2}= f.label :comments
+    %tr
+      %td
+      %td= f.text_area :comments
+    %tr
+      %td{colspan: 2}= f.submit 'Save'
