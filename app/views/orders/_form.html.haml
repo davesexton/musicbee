@@ -1,7 +1,8 @@
 = form_for @order do |f|
   - if @order.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      %h2
+        #{pluralize(@order.errors.count, 'error')} prohibited this order from being submitted:
       %ul
         - @order.errors.full_messages.each do |msg|
           %li= msg
@@ -62,6 +63,9 @@
       %td= f.label :email_address
       %td= f.text_field :email_address
     %tr
+      %td= f.label :email_address_confirmation
+      %td= f.text_field :email_address_confirmation
+    %tr
       %td= f.label :telephone
       %td= f.text_field :telephone
     %tr
@@ -73,4 +77,4 @@
       %td
       %td= f.text_area :comments
     %tr
-      %td{colspan: 2}= f.submit 'Save'
+      %td{colspan: 2}= f.submit 'Submit order'

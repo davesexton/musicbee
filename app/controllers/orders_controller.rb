@@ -16,12 +16,15 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @order = Order.find(params[:id])
+    #@order = Order.find(params[:id])
+    @order = Order.find(session[:order_id])
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @order }
     end
+    rescue ActiveRecord::RecordNotFound
+      redirect_to new_order_path
   end
 
   # GET /orders/new
@@ -46,6 +49,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
+    @products = Product.all
 
     respond_to do |format|
       if @order.save
@@ -59,6 +63,7 @@ class OrdersController < ApplicationController
                              quantity: fp)
           end
         end
+        session[:order_id] = @order.id
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }
       else
