@@ -1,15 +1,18 @@
 class Notifier < ActionMailer::Base
-  default from: "from@example.com"
+  #default from: "from@example.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
   #   en.notifier.order_acknowledge.subject
   #
-  def order_acknowledge
+  def order_acknowledge(order)
     @greeting = "Hi"
+    @order = order
 
-    mail to: "to@example.org"
+    mail to: order.email_address,
+         from: APP_CONFIG['email_from'],
+         subject: 'Order Confirmation from Music Bee'
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -17,10 +20,13 @@ class Notifier < ActionMailer::Base
   #
   #   en.notifier.order_notifier.subject
   #
-  def order_notifier
-    @greeting = "Hi"
+  def order_notifier(order)
+    @greeting = 'Hi'
+    @order = order
 
-    mail to: "to@example.org"
+    mail to: APP_CONFIG['email_to'],
+         from: APP_CONFIG['email_from'],
+         subject: 'New Order from Music Bee'
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -30,7 +36,7 @@ class Notifier < ActionMailer::Base
   #
   def contact_acknowledge(message)
     @message = message
-    @greeting = "Hi"
+    @greeting = 'Hi'
 
     mail to: message.email,
          from: APP_CONFIG['email_from'],
@@ -47,6 +53,7 @@ class Notifier < ActionMailer::Base
     @greeting = "Hi"
 
     mail to: APP_CONFIG['email_to'],
+         from: APP_CONFIG['email_from'],
          subject: 'New Contact Messafe from Music Bee'
   end
 end

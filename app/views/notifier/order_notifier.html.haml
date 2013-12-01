@@ -1,30 +1,4 @@
--@title = 'Order'
-
-%h1 Order Confirmation
-%p
-  your order form is now complete, please print this page and post it
-  together with a cheque for
-  %b=number_to_currency(@order.gross_total)
-  made payable to
-  %b Music Bee Ltd
-  to the following address:
-%p
-  %b Parkview
-  %br/
-  %b 1 School Road
-  %br/
-  %b Blackmore End
-  %br/
-  %b Nr Braintree
-  %br/
-  %b Essex CM7 4DN
-  %br/
-  %b VAT No. 761232944
-  %br/
-  %br/
-  If you have any questions about this order you can call us on
-  01371-851164 or 07950-645197
-%table
+%table{border: 1, cellspacing: 0, cellpadding: 2}
   %tr
     %th Item
     %th Format
@@ -43,7 +17,9 @@
       %b Order Total
     %td.field
       %b=number_to_currency(@order.gross_total)
-%table
+%br/
+%br/
+%table{border: 1, cellspacing: 0, cellpadding: 2}
   %tr
     %td Name:
     %td
@@ -56,17 +32,11 @@
     %td Address:
     %td
       %b= @order.address_line_1
-  %tr
-    %td
-    %td
+      %br/
       %b= @order.address_line_2
-  %tr
-    %td
-    %td
+      %br/
       %b= @order.address_line_3
-  %tr
-    %td
-    %td
+      %br/
       %b= @order.address_line_4
   %tr
     %td Post code:
@@ -85,6 +55,7 @@
     %td
       %b= @order.reference
   %tr
-    %td Comments:
-    %td
+    %td{colspan: 2} Comments:
+  %tr
+    %td{colspan: 2}
       %b= @order.comments

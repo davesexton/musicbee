@@ -19,7 +19,6 @@ class Order < ActiveRecord::Base
     with: /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/,
     message: 'format is invalid'}
 
-#TODO: add order validation
 #TODO: validation to check at least one item has been ordered
   def net_total
     order_items.sum(0){|i| i.net_total}

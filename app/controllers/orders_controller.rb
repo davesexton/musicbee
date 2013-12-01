@@ -63,6 +63,8 @@ class OrdersController < ApplicationController
                              quantity: fp)
           end
         end
+        Notifier.order_notifier(@order).deliver
+        Notifier.order_acknowledge(@order).deliver
         session[:order_id] = @order.id
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }

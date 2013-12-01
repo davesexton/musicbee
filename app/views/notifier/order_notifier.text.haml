@@ -1,3 +1,33 @@
-Notifier#order_notifier
+MUSIC BEE ORDER
+='==========================='
 
-= @greeting + ", find me in app/views/notifier/order_notifier.text.haml"
+-@order.order_items.each_with_index do |item, i|
+  Order item #{i + 1}:
+  ="  Item:    #{item.product.title}"
+  ="  Format:  #{item.format.title}"
+  ="  Price    %.2f" % item.gross_price
+  ="  Quantity #{item.quantity}"
+  ="  Total    %.2f" % item.gross_total
+-'---------------------------'
+="Order Total %.2f" % @order.gross_total
+-'---------------------------'
+
+Name:
+="  #{@order.name}"
+School name:
+="  #{@order.school_name}"
+Address:
+="  #{@order.address_line_1}"
+="  #{@order.address_line_2}"
+="  #{@order.address_line_3}"
+="  #{@order.address_line_4}"
+Post code:
+="  #{@order.post_code}"
+Email address:
+="  #{@order.email_address}"
+Telephone:
+="  #{@order.telephone}"
+Reference:
+="  #{@order.reference}"
+Comments:
+="  #{@order.comments}"

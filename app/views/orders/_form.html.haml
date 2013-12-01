@@ -23,14 +23,6 @@
             =number_to_currency(0)
     %tr
       %td.field{colspan: 3}
-        %b Net Total
-      %td.field#net_total=number_to_currency(0)
-    %tr
-      %td.field{colspan: 3}
-        %b VAT
-      %td.field#vat_total=number_to_currency(0)
-    %tr
-      %td.field{colspan: 3}
         %b Order Total
       %td.field#gross_total=number_to_currency(0)
   %hr
@@ -77,4 +69,4 @@
       %td
       %td= f.text_area :comments
     %tr
-      %td{colspan: 2}= f.submit 'Submit order'
+      %td{colspan: 2}= f.submit 'Place order'
