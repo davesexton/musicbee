@@ -12,19 +12,16 @@
         %h1
           MUSIC BEE
         %nav
-          = link_to_unless_current 'Home', root_path
-          %span.separator
-            |
-          = link_to_unless_current 'Samples', samples_path
-          %span.separator
-            |
-          = link_to_unless_current 'CD Contents', contents_path
-          %span.separator
-            |
-          = link_to_unless_current 'Order Form', order_form_path
-          %span.separator
-            |
-          = link_to_unless_current 'Contact Us', contact_path
+          %ul
+            %li= link_to_unless_current 'Home', root_path
+            %li|
+            %li= link_to_unless_current 'Samples', samples_path
+            %li|
+            %li= link_to_unless_current 'CD Contents', contents_path
+            %li|
+            %li= link_to_unless_current 'Order Form', order_form_path
+            %li|
+            %li= link_to_unless_current 'Contact Us', contact_path
       %aside
         %canvas#canvas{width: 310, height: 500}
       %section

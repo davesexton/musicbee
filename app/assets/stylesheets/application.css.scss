@@ -31,6 +31,12 @@ nav {
   top: 0px;
   left: 450px;
   color: #000000;
+  ul {
+    list-style-type: none;
+    li {
+      display: inline;
+    }
+  }
   a {
     color: #000000;
   }
@@ -170,5 +176,8 @@ nav {
   width: 95%;
   margin: 10px;
   text-align: right;
+  ul {
+    list-style-type: none;
+  }
 }
 */
