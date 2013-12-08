@@ -1,5 +1,7 @@
 Musicbee::Application.routes.draw do
 
+  get "admin/index"
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
@@ -12,6 +14,7 @@ Musicbee::Application.routes.draw do
   get 'contact' => 'transitional#contact'
   post 'contact' => 'transitional#contact_send'
   get 'order_form' => 'orders#new'
+  get 'admin' => 'admin#index'
 
   #get 'about' => 'about#index'
   #get 'about/index'
