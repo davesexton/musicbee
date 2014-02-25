@@ -8,13 +8,13 @@ $ ->
     $('#player').bind('ended', ->
       $('.play_button').data('playing', 'n')
       $('.play_button img').each ->
-        this.src = this.src.replace /-pause\./, '-play.'
+        this.src = '/assets/control-play.gif'
     )
 
     $('.play_button').click ->
 
       $('.play_button img').each ->
-        this.src = this.src.replace /-pause\./, '-play.'
+        this.src = '/assets/control-play.gif'
 
       $('.play_button').not(this).data('playing', 'n')
 
@@ -24,7 +24,7 @@ $ ->
 
       if data.playing == 'y'
         player.pause()
-        t.src = t.src.replace /-pause\./, '-play.'
+        this.src = '/assets/control-play.gif'
         $(this).data 'playing', 'n'
 
       else
@@ -33,7 +33,7 @@ $ ->
         else
           file = data.mp3
 
-        t.src = t.src.replace /-play\./, '-pause.'
+        this.src = '/assets/control-pause.gif'
         $(this).data 'playing', 'y'
 
         if player.src.indexOf(file) > -1
