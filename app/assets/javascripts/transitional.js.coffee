@@ -24,7 +24,6 @@ $ ->
 
       if data.playing == 'y'
         player.pause()
-        this.src = '/assets/control-play.gif'
         $(this).data 'playing', 'n'
 
       else
@@ -32,8 +31,7 @@ $ ->
           file = data.ogg
         else
           file = data.mp3
-
-        this.src = '/assets/control-pause.gif'
+        $(this).children()[0].src = '/assets/control-pause.gif'
         $(this).data 'playing', 'y'
 
         if player.src.indexOf(file) > -1
