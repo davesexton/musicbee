@@ -1,13 +1,15 @@
 !!! 5
-%html{data: {web_property_id: APP_CONFIG['ga_id']}}
+%html
   %head
-    %meta{name: 'google-site-verification',
-          content: 'NBtrWI1FpSv7fDLZ5xNKQY6bu2vjY9fwWzDSiPLooXY'}
+    - if Rails.env.production?
+      %meta{name: 'google-site-verification',
+            content: 'NBtrWI1FpSv7fDLZ5xNKQY6bu2vjY9fwWzDSiPLooXY'}
     %title Music Bee #{' - ' + @title unless @title == nil}
     = stylesheet_link_tag    "application", media:  "all"
     = javascript_include_tag "application"
     = favicon_link_tag
     = csrf_meta_tags
+    = render partial: 'layouts/ga' if Rails.env.production?
 
   %body{class: controller.controller_name}
     %div
