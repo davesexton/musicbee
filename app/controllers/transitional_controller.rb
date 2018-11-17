@@ -22,7 +22,7 @@ class TransitionalController < ApplicationController
 
   def contact_send
     @message  = Message.new(params[:message])
-    if @message.valid?
+    if verify_recaptcha(model: @message) and @message.valid?
       Notifier.contact_notifier(@message).deliver
       Notifier.contact_acknowledge(@message).deliver
       @message.save

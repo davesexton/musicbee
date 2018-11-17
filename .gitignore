@@ -26,3 +26,8 @@
 # Sensitive data
 /config/config.yml
 /config/database.yml
+
+.env
+
+
+.DS_Store

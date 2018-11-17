@@ -54,6 +54,6 @@ class Notifier < ActionMailer::Base
 
     mail to: APP_CONFIG['email_to'],
          from: APP_CONFIG['email_from'],
-         subject: 'New Contact Messafe from Music Bee'
+         subject: 'New Contact Message from Music Bee'
   end
 end
